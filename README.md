@@ -1,13 +1,3 @@
-[[Contributors][contributors-shield]][https://github.com/blasio99/SimpleChatOCSF/graphs/contributors]
-[[Forks][forks-shield]][https://github.com/blasio99/SimpleChatOCSF/network/members]
-[[Stargazers][stars-shield]][https://github.com/blasio99/SimpleChatOCSF/stargazers]
-[[Issues][issues-shield]][https://github.com/blasio99/SimpleChatOCSF/issues]
-[[LinkedIn][linkedin-shield]][https://www.linkedin.com/in/balazs-benedek-009322183/]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
 <p align="center">
   <a href="https://github.com/blasio99">
     <img src="images/v3.png" alt="Logo" width="80" height="80">
@@ -27,9 +17,6 @@
   </p>
 </p>
 
-
-
-<!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
 * [About the Project](#about-the-project)
@@ -42,9 +29,6 @@
 * [Contact](#contact)
 * [Requirements](#requirements)
 
-
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
 Simple chat program using the ocsf framework to work with OpDemand.  
 OCSF is a simple framework that provides TCP-based client-server connections.  
@@ -60,8 +44,6 @@ The OCSF framework is described in a textbook by Lethbridge (chapter on OCSF is 
 * [OCSF](http://www.site.uottawa.ca/school/research/lloseng/supportMaterial/ocsf/ocsf.html)  
 
 
-
-<!-- GETTING STARTED -->
 ### Getting Started
 
 ## Problem 1: Write a Client that connects to server and sends Strings
@@ -97,8 +79,6 @@ In another terminal
 Compile with `javac ClientConsole.java`    
 Then run with `java ClientConsole loginID [host [port]]` where loginID, host and port should be replaced (for example: java ClientConsole client1 localhost 5555)  
 
-
-<!-- CONTRIBUTING -->
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.  
@@ -109,8 +89,6 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)  
 5. Open a Pull Request  
 
-
-<!-- CONTACT -->
 ## Contact
 
 Benedek Balazs - [LinkedIn profile - ME](https://www.linkedin.com/in/balazs-benedek-009322183/) - benedekbalazs1999@gmail.com
