@@ -1,9 +1,8 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Contributors][contributors-shield]][https://github.com/blasio99/SimpleChatOCSF/graphs/contributors]
+[![Forks][forks-shield]][https://github.com/blasio99/SimpleChatOCSF/network/members]
+[![Stargazers][stars-shield]][https://github.com/blasio99/SimpleChatOCSF/stargazers]
+[![Issues][issues-shield]][https://github.com/blasio99/SimpleChatOCSF/issues]
+[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/balazs-benedek-009322183/]
 
 
 
