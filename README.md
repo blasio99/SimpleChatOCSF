@@ -1,22 +1,3 @@
-<!--
-*** Thanks for checking out this README Template. If you have a suggestion that would
-*** make this better, please fork the repo and create a pull request or simply open
-*** an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-
-
-
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -30,22 +11,20 @@
 <br />
 <p align="center">
   <a href="https://github.com/blasio99">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/v3.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Simple Chat with OCSF</h3>
 
   <p align="center">
-    This README explains the project's porpose
+    Simple chat program using the ocsf framework
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/blasio99/SimpleChatOCSF"><strong>Explore the project</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/blasio99/SimpleChatOCSF/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/blasio99/SimpleChatOCSF/issues">Request Feature</a>
   </p>
 </p>
 
@@ -70,74 +49,57 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+Simple chat program using the ocsf framework to work with OpDemand.
+OCSF is a simple framework that provides TCP-based client-server connections.
+Without the framework, we would need several labs just to implement network communication.
+A framework reduces development time and usually improves software quality. Most frameworks are
+extensively tested both by developers and users, so they have fewer bugs and a better architecture than
+software written from scratch.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+## Using OCSF
+The Object Client-Server Framework (OCSF) provides client-server communications using TCP/IP.
+The OCSF framework is described in a textbook by Lethbridge (chapter on OCSF is on class web).
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+* [OCSF](http://www.site.uottawa.ca/school/research/lloseng/supportMaterial/ocsf/ocsf.html)
 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+### Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+## Problem 1: Write a Client that connects to server and sends Strings
+You can write a console-based client or GUI client
+Create a client as a subclass of AbstractClient or ObservableClient. that does this:
+a) Connect to the server and display a "connected" message.
+b) Show any messages from the server. Print on console or display in a GUI field.
+c) Accept input from the user and send it to the server.
+d) Close the connection when you want to quit. If you write a GUI, there should be a "Disconnect" button. On the console, if the user enters "quit" then disconnect.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-```sh
-npm install npm@latest -g
-```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
-```
-3. Install NPM packages
-```sh
-npm install
-```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+## Problem 2: Write a Chat Server for 1-to-1 Chat
+Write your own server using OCSF's AbstractServer class.
+You should create a server that requires clients to identify themselves, so you know which user is connected on which ClientConnection object.
+2.1 Write a class that extends AbstractServer or ObservableServer (both classes have the same methods).
+2.2 When a new client connects, you should wait for the client to (somehow) identify the user. Design your own solution to this. The ClientConnection object has a map that you can use to store arbitrary values. You can use this to store the user's name. For example: client.setInfo("username", clientname );
+2.3 When a user logs in, servers send a message to all clients telling them "Clientname connected" (you can design the format of this message. It doesn't have to be a String.)
+2.4 When a logged-in client sends a one-to-one message like this:
+        To: Anchan
+        Hi, Anchan. How are you?
+your server should find a client connection with login name "Anchan" and send the message. Be sure to tell Anchan who the message is from!
+2.3 If a client sends the String message "Logout" then close the client connection and tell all other clients "Anchan logged off".
+2.4 If the client sends any other message, the server responds that message is not recognized.
 
 
+## To Run
+------
+From command line  
+`cd` into directory.
+Compile with `javac ServerConsole.java`  
+Then run with `java ServerConsole`
 
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
+In another terminal 
+Compile with `javac ClientConsole.java`  
+Then run with `java ClientConsole loginID [host [port]]` where loginID, host and port should be replaced (for example: java ClientConsole client1 localhost 5555)
 
 
 <!-- CONTRIBUTING -->
@@ -152,53 +114,19 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Benedek Balazs - [LinkedIn profile - ME](https://www.linkedin.com/in/balazs-benedek-009322183/) - benedekbalazs1999@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
+Project Link: [GitHub - blasio99 - SimpleChatOCSF](https://github.com/blasio99/SimpleChatOCSF)
 
 
+## References
 
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+Lethbridge and Lagariere, Object-Oriented Software Engineering, 2E. Textbook describes use of OCSF and a chat project.
+A standard, high-performance framework for chat and other applications is XMPP.
+XMPP is a standard protocol for real-time messaging; XMPP was originally called Jabber. Google Talk uses XMPP. You can use XMPP to write your own Chat client or other Internet application. There are many several free XMPP servers (such as Jabberd and OpenFire), clients, and libraries. XMPP can be used for more than just chat. SMACK is an open-source XMPP library for Java. It is used by several chat applications. http://www.igniterealtime.org/projects/smack/
+* How to use SMACK to write a Java client: http://www.javacodegeeks.com/2010/09/xmpp-imwith-smack-for-java.html
+* Other two articles in the same series describe infrastructure for using XMPP.
+XEP-0045 Multi-User Chat. Protocol for a multi-user chat using XMPP. http://xmpp.org/extensions/xep0045.html#bizrules-message

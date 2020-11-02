@@ -10,6 +10,7 @@ package common;
  *
  * @author Dr Robert Lagani&egrave;re
  * @author Dr Timothy C. Lethbridge
+ * @author Benedek Balazs (blasio99)
  * @version July 2000
  */
 public interface ChatIF

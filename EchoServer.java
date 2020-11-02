@@ -13,7 +13,7 @@ import common.*;
  * @author Dr Timothy C. Lethbridge
  * @author Dr Robert Lagani&egrave;re
  * @author Fran&ccedil;ois B&eacute;langer
- * @author Paul Holden
+ * @author Benedek Balazs (blasio99)
  * @version July 2000
  */
 public class EchoServer extends AbstractServer 

@@ -15,6 +15,7 @@ import java.io.*;
  * @author Dr Timothy C. Lethbridge
  * @author Dr Robert Lagani&egrave;
  * @author Fran&ccedil;ois B&eacute;langer
+ * @author Benedek Balazs (blasio99)
  * @version July 2000
  */
 public class ChatClient extends AbstractClient

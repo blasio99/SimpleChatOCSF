@@ -21,7 +21,7 @@ import java.util.*;
 * @author Dr Robert Lagani&egrave;re
 * @author Dr Timothy C. Lethbridge
 * @author Fran&ccedil;ois B&eacute;langer
-* @author Paul Holden
+* @author Benedek Balazs (blasio99)
 * @version February 2001 (2.12)
 */
 public class ConnectionToClient extends Thread
