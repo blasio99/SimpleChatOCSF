@@ -63,7 +63,7 @@ public class EchoServer extends AbstractServer {
     else 
     {
       serverUI.display(message);
-      this.sendToAllClients("SERVER MSG> " + message);
+      this.sendToAllClients("SERVER> " + message);
     }
   }
 

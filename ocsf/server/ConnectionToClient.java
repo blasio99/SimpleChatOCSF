@@ -63,7 +63,7 @@ public class ConnectionToClient extends Thread
    * information about each client. Used by the setInfo and getInfo
    * methods.
    */
-  private HashMap savedInfo = new HashMap(10);
+  private Map savedInfo = new HashMap(10);
 
 
 // CONSTRUCTORS *****************************************************

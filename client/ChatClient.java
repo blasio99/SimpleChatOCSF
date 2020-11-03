@@ -29,8 +29,8 @@ public class ChatClient extends AbstractClient
     super(host, port); //Call the superclass constructor
     this.clientUI = clientUI;
     openConnection();
-    this.loginID = "ANONYMOUS";
-    sendToServer("#login ANONYMOUS");
+    this.loginID = "ANONYMOUS CLIENT";
+    sendToServer("#login ANONYMOUS CLIENT");
   }
 
   
