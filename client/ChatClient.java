@@ -16,34 +16,13 @@ import java.io.*;
  * @author Dr Robert Lagani&egrave;
  * @author Fran&ccedil;ois B&eacute;langer
  * @author Benedek Balazs (blasio99)
- * @version July 2000
+ * @version Oct 2020
  */
 public class ChatClient extends AbstractClient
 {
-  //Instance variables **********************************************
-  
-  /**
-   * The interface type variable.  It allows the implementation of 
-   * the display method in the client.
-   */
   ChatIF clientUI; 
-
-  /**
-   * The Login ID of the user.
-   */
   String loginID;
 
-  
-  //Constructors ****************************************************
-  
-  /**
-   * Constructs an instance of the chat client.
-   *
-   * @param host The server to connect to.
-   * @param port The port number to connect on.
-   * @param clientUI The interface type variable.
-   */
-  
   public ChatClient(String host, int port, ChatIF clientUI) 
     throws IOException 
   {
@@ -54,14 +33,6 @@ public class ChatClient extends AbstractClient
     sendToServer("#login ANONYMOUS");
   }
 
-  /**
-   * Constructs an instance of the chat client.
-   *
-   * @param loginID The user ID.
-   * @param host The server to connect to.
-   * @param port The port number to connect on.
-   * @param clientUI The interface type variable.
-   */
   
   public ChatClient(String loginID, String host, int port, ChatIF clientUI) 
     throws IOException 
@@ -74,23 +45,11 @@ public class ChatClient extends AbstractClient
   }
 
   
-  //Instance methods ************************************************
-    
-  /**
-   * This method handles all data that comes in from the server.
-   *
-   * @param msg The message from the server.
-   */
   public void handleMessageFromServer(Object msg) 
   {
     clientUI.display(msg.toString());
   }
 
-   /**
-   * This method handles all data coming from the UI            
-   *
-   * @param message The message from the UI.    
-   */
   public void handleMessageFromClientUI(String message)
   {
     // detect commands
@@ -106,19 +65,12 @@ public class ChatClient extends AbstractClient
       }
       catch(IOException e)
       {
-        clientUI.display
-          ("Could not send message to server.  Terminating client.");
+        clientUI.display ("[ERROR] Could not send message to server. Terminating client.");
         quit();
       }
     }
   }
 
-  /**
-   * This method executes client commands. Benjamin Bergman, Oct 22, 
-   * 2009
-   *
-   * @param message string from the client console
-   */
   private void runCommand(String message)
   {
     // a bunch of ifs
@@ -144,19 +96,17 @@ public class ChatClient extends AbstractClient
         int newPort = Integer.parseInt(message.substring(9));
         setPort(newPort);
         // error checking for syntax a possible addition
-        clientUI.display
-          ("Port changed to " + getPort());
+        clientUI.display("Port changed to " + getPort());
       }
       catch (Exception e)
       {
-        System.out.println("Unexpected error while setting client port!");
+        System.out.println("[ERROR] Unexpected error while setting client port!");
       }
     }
     else if (message.toLowerCase().startsWith("#sethost"))
     {
       setHost(message.substring(9));
-      clientUI.display
-        ("Host changed to " + getHost());
+      clientUI.display ("Host changed to " + getHost());
     }
     else if (message.toLowerCase().startsWith("#login"))
     {
@@ -188,9 +138,6 @@ public class ChatClient extends AbstractClient
     }
   }
   
-  /**
-   * This method terminates the client.
-   */
   public void quit()
   {
     try
@@ -201,14 +148,6 @@ public class ChatClient extends AbstractClient
     System.exit(0);
   }
 
-  /**
-   * Reacts to a closed connection while waiting for
-   * messages from the server. Overrides method in 
-   * <code>AbstractClient</code>. Added by Benjamin 
-   * Bergman, Oct 22, 2009.
-   *
-   * @param exception the exception raised.
-   */
   protected void connectionException(Exception exception)
   {
     clientUI.display
@@ -216,4 +155,3 @@ public class ChatClient extends AbstractClient
       ") has been disconnected");
   }
 }
-//End of ChatClient class

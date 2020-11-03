@@ -21,16 +21,17 @@ public class ServerConsole implements ChatIF
             server = new EchoServer(port, this);
         }catch(IOException exception) 
         {
-            System.out.println("Error: Can't setup connection!" + " Terminating client.");
+            System.out.println("[ERROR] Can't setup connection! Terminating client.");
             System.exit(1);
         }
         
         try
         {
-            server.listen(); //Start listening for connections
-        }catch (Exception ex)
+            server.listen();
+        }
+        catch (Exception ex)
         {
-            System.out.println("ERROR - Could not listen for clients!");
+            System.out.println("[ERROR] Could not listen for clients!");
         }
     }
 
@@ -40,7 +41,6 @@ public class ServerConsole implements ChatIF
         try
         {
             BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-
             while (true) 
             {
                 String message = console.readLine();
@@ -48,7 +48,7 @@ public class ServerConsole implements ChatIF
             }
         }catch (Exception ex) 
         {
-            System.out.println ("Unexpected error while reading from console!");
+            System.out.println ("[ERROR] Unexpected error while reading from console!");
         }
     }
     public void display(String message) 
@@ -63,11 +63,12 @@ public class ServerConsole implements ChatIF
         try
         {
             port = Integer.parseInt(args[0]);
-        }catch(Throwable e)
+        }
+        catch(Throwable e)
         {
             port = DEFAULT_PORT;
         }
         ServerConsole server = new ServerConsole(port);
-        server.accept();  //Wait for console data
+        server.accept();
     }
 }
