@@ -86,16 +86,16 @@ public class ChatClient extends AbstractClient
         closeConnection();
       }
       catch(IOException e) {}
+
       clientUI.display("You have logged off.");
     }
     else if (message.toLowerCase().startsWith("#setport"))
     {
-      // requires the command, followed by a space, then the port number
       try 
       {
         int newPort = Integer.parseInt(message.substring(9));
         setPort(newPort);
-        // error checking for syntax a possible addition
+        
         clientUI.display("Port changed to " + getPort());
       }
       catch (Exception e)
@@ -150,8 +150,6 @@ public class ChatClient extends AbstractClient
 
   protected void connectionException(Exception exception)
   {
-    clientUI.display
-      ("The connection to the Server (" + getHost() + ", " + getPort() + 
-      ") has been disconnected");
+    clientUI.display("The connection to the Server (" + getHost() + ", " + getPort() + ") has been disconnected");
   }
 }
