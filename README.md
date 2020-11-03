@@ -44,9 +44,9 @@ The OCSF framework is described in a textbook by Lethbridge (chapter on OCSF is 
 * [OCSF](http://www.site.uottawa.ca/school/research/lloseng/supportMaterial/ocsf/ocsf.html)  
 
 
-### Getting Started
+## Getting Started
 
-## Problem 1: Write a Client that connects to server and sends Strings
+### Problem 1: Write a Client that connects to server and sends Strings
 You can write a console-based client or GUI client  
 Create a client as a subclass of AbstractClient or ObservableClient. that does this:  
 1. Connect to the server and display a "connected" message.  
@@ -54,7 +54,7 @@ Create a client as a subclass of AbstractClient or ObservableClient. that does t
 3. Accept input from the user and send it to the server.  
 4. Close the connection when you want to quit. If you write a GUI, there should be a "Disconnect" button. On the console, if the user enters "quit" then disconnect.  
 
-## Problem 2: Write a Chat Server for 1-to-1 Chat
+### Problem 2: Write a Chat Server for 1-to-1 Chat
 Write your own server using OCSF's AbstractServer class.  
 You should create a server that requires clients to identify themselves, so you know which user is connected on which ClientConnection object.  
 1. Write a class that extends AbstractServer or ObservableServer (both classes have the same methods).  
@@ -69,7 +69,7 @@ your server should find a client connection with login name "Anchan" and send th
 
 
 ## To Run
-------
+
 From command line  
 `cd` into directory.  
 Compile with `javac ServerConsole.java`    
